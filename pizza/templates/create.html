@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>piiza order</title>
+{% block content %}
+
+<from action="{% url 'pizza:create' %}" method="POST">
+	{% csrf_token %}
+
+	<h2> Addres</h2>
+	{{ delivery_form.as_p }}
+
+	<hr>
+
+	<h2>Pizza</h2>
+	{{ pizza_form.as_p }}
+
+	<input type="submit" value="Submit">
+</from>
+{% endblock %}
+<!--</head>
+<body>
+	<form action="/pizza/create" method="POST">
+
+		<H1>Address</H1>
+		<input type="text" id="address" name="address">
+		<label for="address">full:</label>
+
+		<hr>
+
+		<h1>Pizza</h1><br>
+		<h2>kind</h2><br>
+
+
+		<input type="radio" name="kind" value="type1">peperoni<br>
+		<input type="radio" name="kind" value="type2">margarita<br>
+		<input type="radio" name="kind" value="type3">four ham<br>
+		<input type="radio" name="kind" value="type4">all-in<br>
+		<br><br>
+
+
+		<h2>size</h2>
+		<input type="radio" name="size" value="s">small<br>
+		<input type="radio" name="size" value="m">medium<br>
+		<input type="radio" name="size" value="l">large<br>
+		<input type="radio" name="size" value="xl">extra large<br>
+		<br><br>
+
+
+		<h2>extra</h2>
+		<select name="extra" size="4" multiple>
+			<option value="ham">ham</option>
+			<option value="tomato">tomato</option>
+			<option value="peperonis">peperonis</option>
+			<option value="olives">olives</option>
+			<option value="cheese">cheese</option>
+			<option value="mushrooms">mushrooms</option>
+			<option value="peper">peper</option>
+		</select>
+		<br><br>
+
+
+		<h2>exclude</h2>
+		<select name="exclude" size="4" multiple>
+			<option value="ham">ham</option>
+			<option value="tomato">tomato</option>
+			<option value="peperonis">peperonis</option>
+			<option value="olives">olives</option>
+			<option value="cheese">cheese</option>
+			<option value="mushrooms">mushrooms</option>
+			<option value="peper">peper</option>
+		</select>
+		<br><br>
+
+		<h2>comment</h2>
+		<textarea name="comment"></textarea>
+		<br><br>
+		<input type="submit" value="submit">
+
+	</form>
+</body>
+</html>
+-->

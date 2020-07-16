@@ -1,0 +1,42 @@
+{% block content %}
+
+<p>Name: {{ pizza.kind }}</p>
+<p>Size: {{ pizza.size }}</p>
+<p>Delivery address: {{ pizza.delivery.full }}</p>
+
+<p>Ingridients:</p>
+<ul>
+	{% for ingridient in pizza.kind.ingridients.all %}
+		{% if ingridient not in pizza.exclude.all %}
+			<li>{{ ingridients.name }}</li>
+		{% endif %}
+	{% endfor %}
+</ul>
+
+<p>Extra</p>
+<ul>
+	{% for ingridient in pizza.extra.all %}
+		<li>{{ ingridient.name }}</li>
+	{% endfor %}
+</ul>
+
+<p>Excluded</p>
+<ul>
+	{% for ingridients in pizza.extra.all %}
+		<li>{{ ingridient.name }}</li>
+	{% endfor %}
+</ul>
+
+<p>Comment: {{ pizza.comment }}</p>
+
+<hr>
+
+<p>Status: {{ pizza.delivered|yesno:"Delivered,Delivering,kek" }}</p>
+<p>Created: {{ pizza.date_created }}</p>
+<p>Delivered: {{ pizza.date_delivered|default_if_None:"Not yet"}}</p>
+
+{% if not pizza.delivered %}
+	<a href="{% url 'pizza:close' pizza.id %}">Mark delivered</a>
+{% endif %}
+
+{% endblock %}

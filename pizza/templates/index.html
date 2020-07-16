@@ -1,0 +1,10 @@
+{% block content %}
+	<a href="{% url 'pizza:create' %}">create new</a>
+
+	<ul>
+		{% for pizza in pizzas %}
+			<li><a href="{% url 'pizza:view' pizza.id %}">{{pizza}}</a></li>
+		{% endfor %}
+	</ul>
+
+{% endblock %}
